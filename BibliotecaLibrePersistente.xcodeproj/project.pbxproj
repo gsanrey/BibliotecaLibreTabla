@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		B147A3201C2ABC05002132CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147A31F1C2ABC05002132CE /* AppDelegate.swift */; };
-		B147A3221C2ABC05002132CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147A3211C2ABC05002132CE /* ViewController.swift */; };
 		B147A3251C2ABC05002132CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147A3231C2ABC05002132CE /* Main.storyboard */; };
 		B147A3281C2ABC05002132CE /* BibliotecaLibrePersistente.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B147A3261C2ABC05002132CE /* BibliotecaLibrePersistente.xcdatamodeld */; };
 		B147A32A1C2ABC05002132CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B147A3291C2ABC05002132CE /* Assets.xcassets */; };
 		B147A32D1C2ABC05002132CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147A32B1C2ABC05002132CE /* LaunchScreen.storyboard */; };
+		B147A3351C2ABD54002132CE /* libro.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147A3341C2ABD54002132CE /* libro.swift */; };
+		B147A3391C2ABDEE002132CE /* LibrosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147A3381C2ABDEE002132CE /* LibrosTableViewController.swift */; };
+		B147A33B1C2AC6AB002132CE /* BuscarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147A33A1C2AC6AB002132CE /* BuscarViewController.swift */; };
+		B147A33D1C2AF407002132CE /* InfoLibroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147A33C1C2AF407002132CE /* InfoLibroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B147A31C1C2ABC05002132CE /* BibliotecaLibrePersistente.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibliotecaLibrePersistente.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B147A31F1C2ABC05002132CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B147A3211C2ABC05002132CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B147A3241C2ABC05002132CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B147A3271C2ABC05002132CE /* BibliotecaLibrePersistente.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BibliotecaLibrePersistente.xcdatamodel; sourceTree = "<group>"; };
 		B147A3291C2ABC05002132CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B147A32C1C2ABC05002132CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B147A32E1C2ABC05002132CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B147A3341C2ABD54002132CE /* libro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = libro.swift; sourceTree = "<group>"; };
+		B147A3381C2ABDEE002132CE /* LibrosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrosTableViewController.swift; sourceTree = "<group>"; };
+		B147A33A1C2AC6AB002132CE /* BuscarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuscarViewController.swift; sourceTree = "<group>"; };
+		B147A33C1C2AF407002132CE /* InfoLibroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLibroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				B147A31F1C2ABC05002132CE /* AppDelegate.swift */,
-				B147A3211C2ABC05002132CE /* ViewController.swift */,
 				B147A3231C2ABC05002132CE /* Main.storyboard */,
 				B147A3291C2ABC05002132CE /* Assets.xcassets */,
 				B147A32B1C2ABC05002132CE /* LaunchScreen.storyboard */,
 				B147A32E1C2ABC05002132CE /* Info.plist */,
 				B147A3261C2ABC05002132CE /* BibliotecaLibrePersistente.xcdatamodeld */,
+				B147A3341C2ABD54002132CE /* libro.swift */,
+				B147A3381C2ABDEE002132CE /* LibrosTableViewController.swift */,
+				B147A33A1C2AC6AB002132CE /* BuscarViewController.swift */,
+				B147A33C1C2AF407002132CE /* InfoLibroViewController.swift */,
 			);
 			path = BibliotecaLibrePersistente;
 			sourceTree = "<group>";
@@ -139,8 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B147A3221C2ABC05002132CE /* ViewController.swift in Sources */,
+				B147A33B1C2AC6AB002132CE /* BuscarViewController.swift in Sources */,
+				B147A33D1C2AF407002132CE /* InfoLibroViewController.swift in Sources */,
+				B147A3391C2ABDEE002132CE /* LibrosTableViewController.swift in Sources */,
 				B147A3201C2ABC05002132CE /* AppDelegate.swift in Sources */,
+				B147A3351C2ABD54002132CE /* libro.swift in Sources */,
 				B147A3281C2ABC05002132CE /* BibliotecaLibrePersistente.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
