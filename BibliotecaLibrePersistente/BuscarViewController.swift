@@ -48,76 +48,37 @@ class BuscarViewController: UIViewController {
             for i in libro!.autores{
                 aut = aut + i + " "
             }
-            lAutoresL.text = aut        }
+            lAutoresL.text = aut
+        }
     }
 
     
     func obtenerLibro(identificador : String) -> Libro?{
-        let destino = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:" + identificador
-        let url = NSURL(string : destino )
-        let datos : NSData? = NSData(contentsOfURL: url!)
-        
+        var mensaje=""
         do{
-            if datos == nil{
-                let alert = UIAlertController(title: "Error", message: "Error de Conexión", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                    switch action.style{
-                    case .Default:
-                        print("default")
-                    case .Cancel:
-                        print("cancel")
-                    case .Destructive:
-                        print("destructive")
-                    }
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
-                return nil
-            }
-            
-            let dat = NSString(data: datos!, encoding: NSUTF8StringEncoding)
-            if dat! as String == "{}"{
-                let alert = UIAlertController(title: "Error", message: "ISBN no encontrado", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                    switch action.style{
-                    case .Default:
-                        print("default")
-                    case .Cancel:
-                        print("cancel")
-                    case .Destructive:
-                        print("destructive")
-                    }
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
-                return nil
-            }
-            
-            let json  = try NSJSONSerialization.JSONObjectWithData(datos!, options:
-                NSJSONReadingOptions.MutableLeaves)
-            var jlibro = json as! NSDictionary
-            jlibro = jlibro["ISBN:"+identificador] as! NSDictionary
-            var autores : [String] = []
-            for i in jlibro["authors"] as! NSArray{
-                autores.append(i["name"] as! String)
-            }
-            let portada : UIImage?
-            if jlibro["cover"] == nil{
-                portada = nil
-            }else{
-                let urlImagen:NSURL? = NSURL(string: jlibro["cover"] as! String)
-                let dataImagen:NSData? = NSData(contentsOfURL : urlImagen!)
-                if dataImagen == nil{
-                    portada = nil
-                }else{
-                    portada = UIImage(data : dataImagen!)
-                }
-            }
-
-            return Libro(isbn: identificador, titulo: jlibro["title"]! as! String, autores : autores, portada : portada)
-            
+            return try Libro(isbn: identificador)
+        }catch (LibroError.ISBNNoEncontrado){
+            mensaje = "ISBN no encontrado"
+        }catch (LibroError.ErrorDeConexion){
+            mensaje = "Error de Conexción"
         }catch _{
-            return (nil)
+            mensaje = "ERROR"
         }
         
+        // Muestra mensaje de error dependiendo de lo sucedido
+        let alert = UIAlertController(title: "Error", message: mensaje, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                print("default")
+            case .Cancel:
+                print("cancel")
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+        return nil
     }
 
 /*
